@@ -106,7 +106,7 @@ img {
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: 10px; 
+  gap: 10px;
   flex-shrink: 0;
   text-decoration: none;
   transition: transform var(--transition-fast);
@@ -905,14 +905,7 @@ textarea {
 .final-cta {
   padding-block: 35px;
   background: #bebdbd;
-  border-bottom: 0px solid var(--border);
-}
-
-.final-cta-inner {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 10px;
+  border-bottom: 0 solid var(--border);
 }
 
 .final-cta .eyebrow {
@@ -1080,7 +1073,6 @@ textarea {
   color: #fff;
 }
 
-
 /* Floating Call button tooltip */
 .floating-call::after {
   content: "Call Us";
@@ -1157,7 +1149,6 @@ textarea {
   pointer-events: auto;
 }
 
-
 /* Scroll-to-top hover tooltip */
 .scroll-to-top {
   position: fixed;
@@ -1223,7 +1214,6 @@ textarea {
     transition: none;
   }
 }
-
 
 /* --- Responsive Media Queries --- */
 @media (max-width: 1000px) {
@@ -1385,7 +1375,6 @@ textarea {
     margin-top: 5px;
   }
 
-
   .booking-copy {
     padding-top: 0;
   }
@@ -1476,7 +1465,6 @@ textarea {
     animation-iteration-count: 1 !important;
   }
 }
-
 
 /* =========================================
    SCROLL REVEAL ANIMATIONS
@@ -1656,7 +1644,7 @@ html.reveal-enabled .reveal-zoom.reveal-visible {
 
 .about-content > p:not(.eyebrow) {
   color: var(--muted);
-  font-size: 16PX;
+  font-size: 16px;
   line-height: 1.85;
   margin-bottom: 18px;
   text-align: justify;
@@ -1878,7 +1866,6 @@ font-weight: 500;
         height: 240px;
     }
 }
-
 
 /* =========================================
    SERVICES SECTION - IMAGE LEFT, TEXT RIGHT
