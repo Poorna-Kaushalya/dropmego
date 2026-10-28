@@ -405,4 +405,25 @@ if (aboutImage) {
   }
 }
 
+/* =========================================
+   DROP ME GO LOGO: RELOAD PAGE AT TOP
+========================================= */
+
+const brandLink = document.querySelector(".site-header .brand");
+
+if (brandLink) {
+  brandLink.addEventListener("click", (event) => {
+    event.preventDefault();
+
+    closeMenu();
+
+    // Navigate to the current page's top anchor.
+    const topUrl = new URL(window.location.href);
+    topUrl.hash = "top";
+
+    // Force navigation even when already on #top.
+    window.location.assign(topUrl.href);
+  });
+}
+
 })();
