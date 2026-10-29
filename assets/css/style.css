@@ -91,10 +91,10 @@ img {
   position: sticky;
   top: 0;
   z-index: 50;
-  background: color-mix(in srgb, var(--f8fafc) 84%, transparent);
+  background: var(--palette-navy) !important; /* Forces solid deep navy background */
+  backdrop-filter: none !important;           /* Removes blur effect */
+  -webkit-backdrop-filter: none !important;   /* Removes Safari blur effect */
   border-bottom: 1px solid color-mix(in srgb, var(--palette-white) 12%, transparent);
-  backdrop-filter: blur(18px);
-  transition: background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .nav-wrap {
@@ -1597,10 +1597,24 @@ html.reveal-enabled .reveal-zoom.reveal-visible {
   }
 }
 
-/* =========================================
-   WHO ARE WE SECTION
-========================================= */
+/* --- About Section Text Color Overrides --- */
 
+.about-content,
+.about-content p,
+.about-content p:not(.eyebrow),
+.about-content span,
+.about-content strong,
+.about-highlight span {
+  color: #232323 !important; 
+  font-weight: 300;
+}
+
+.about-content strong,
+.about-highlight strong {
+  font-weight: 800;
+}
+
+/* about layout */
 .about-layout {
   display: grid;
   grid-template-columns: 1.05fr 0.95fr;
@@ -1645,12 +1659,10 @@ html.reveal-enabled .reveal-zoom.reveal-visible {
 }
 
 .about-content > p:not(.eyebrow) {
-  color: var(--palette-muted);
   font-size: 16px;
   line-height: 1.85;
   margin-bottom: 18px;
   text-align: justify;
-font-weight: 500;
 }
 
 /* About image: Right-to-left reveal animation */

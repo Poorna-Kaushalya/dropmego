@@ -2,13 +2,13 @@
     <div class="container booking-layout">
 
         <div class="booking-copy">
-            <p class="eyebrow">LET'S GET YOU MOVING</p>
+            <p class="eyebrow">STAY SAFE ON THE ROAD</p>
 
-            <h2>Where can we <em>take you?</em></h2>
+            <h2>Book your <em>safe ride home.</em></h2>
 
             <p>
-                Fill in your trip details. We’ll prepare a message
-                for WhatsApp so you can send your request directly.
+                Fill in your trip details below. We’ll instantly format a message 
+                for WhatsApp so you can secure your designated driver right away.
             </p>
 
             <div class="booking-note">
@@ -27,7 +27,7 @@
             <div class="contact-mini">
                 <i class="bi bi-telephone"></i>
                 <span>
-                    Prefer to call?
+                    Need an urgent driver? Call us:
                     <a href="tel:<?= htmlspecialchars($phoneLink, ENT_QUOTES, 'UTF-8') ?>">
                         <?= htmlspecialchars($phoneDisplay, ENT_QUOTES, 'UTF-8') ?>
                     </a>
@@ -40,7 +40,7 @@
               data-whatsapp="<?= htmlspecialchars($whatsappNumber, ENT_QUOTES, 'UTF-8') ?>">
 
             <div class="form-heading">
-                <h3>Request a driver</h3>
+                <h3>Request a sober driver</h3>
                 <span><i class="bi bi-lock"></i> Simple & secure</span>
             </div>
 
@@ -65,24 +65,24 @@
                 <label class="field-full">
                     Service type
                     <select name="service" required>
-                        <option value="">Choose a service</option>
-                        <option>Hourly Package</option>
-                        <option>Short Distance Package</option>
-                        <option>Day Package</option>
+                        <option value="">Choose a service package</option>
+                        <option>Hourly Package (Night Out)</option>
+                        <option>Short Distance Safe Ride</option>
+                        <option>Full Day Chauffeur Package</option>
                     </select>
                 </label>
 
                 <label>
                     Pickup location
                     <input name="pickup" type="text"
-                           placeholder="Where should we meet?"
+                           placeholder="Where is your vehicle parked?"
                            maxlength="160" required>
                 </label>
 
                 <label>
                     Destination
                     <input name="destination" type="text"
-                           placeholder="Where are you going?"
+                           placeholder="Where should we drive you?"
                            maxlength="160" required>
                 </label>
 
@@ -102,7 +102,7 @@
                     <span class="optional">(optional)</span>
                     <textarea name="notes" rows="3"
                               maxlength="500"
-                              placeholder="Vehicle type or other trip details"></textarea>
+                              placeholder="Car transmission type (Auto/Manual) or specific instructions"></textarea>
                 </label>
 
             </div>

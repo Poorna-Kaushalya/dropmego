@@ -19,7 +19,7 @@
             </a>
 
             <p>
-                Your vehicle. Your destination. A driver when you need one.
+                Prevent drink driving. Your vehicle, your destination, driven safely by professionals.
             </p>
 
         </div>
@@ -39,12 +39,12 @@
                 <?= htmlspecialchars($phoneDisplay, ENT_QUOTES, 'UTF-8') ?>
             </a>
 
-            <a href="#booking">Request a booking</a>
+            <a href="#booking">Request a safe driver</a>
 
             <a href="https://wa.me/<?= htmlspecialchars($whatsappNumber, ENT_QUOTES, 'UTF-8') ?>"
                target="_blank"
                rel="noopener noreferrer">
-                WhatsApp
+                WhatsApp Support
             </a>
         </div>
 

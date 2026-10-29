@@ -2,8 +2,8 @@
     <div class="container final-cta-inner">
 
         <div>
-            <p class="eyebrow">MAKE YOUR NEXT TRIP EASIER</p>
-            <h2>Relax. We’ll handle the drive.</h2>
+            <p class="eyebrow">DON'T RISK A DRINK & DRIVE FINE</p>
+            <h2>Enjoy your time. Let us drive your car home.</h2>
         </div>
 
         <div class="cta-contact">
@@ -14,7 +14,7 @@
                 <i class="bi bi-telephone-fill"></i>
 
                 <span>
-                    <small>Call Us</small>
+                    <small>Contact Us</small>
                     <strong>
                         <?= htmlspecialchars($phoneDisplay, ENT_QUOTES, 'UTF-8') ?>
                     </strong>
