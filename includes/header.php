@@ -29,7 +29,7 @@
             <a href="#services">Services</a>
             <a href="#how-it-works">How it works</a>
             <a href="#pricing">Packages</a>
-            <a href="#contact">Contact</a>
+            <a href="contact.php">Contact</a>
 
             <a class="button button-small button-gold nav-cta"
                href="#booking">

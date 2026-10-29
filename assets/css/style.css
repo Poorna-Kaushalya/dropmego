@@ -3373,3 +3373,208 @@ mask-composite: exclude;
     will-change: auto;
   }
 }
+
+
+/* =========================================
+   CONTACT HERO SLIDER & ANIMATIONS
+========================================= */
+
+/* Ensure exact proportions for 1672x814 background aspect ratio */
+.contact-hero {
+  position: relative;
+  overflow: hidden;
+  min-height: 85vh;
+  aspect-ratio: 1672 / 814; 
+  max-height: 850px;      
+  display: flex;
+  align-items: center;
+  padding-block: 80px;
+  background-color: var(--palette-navy-soft, #071426);
+}
+
+/* -----------------------------------------
+   1. BACKGROUND IMAGE TRANSITIONS & PAN
+----------------------------------------- */
+.hero-bg-slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(1.12); /* Slightly zoomed out initial state */
+  transition: 
+    opacity 1.5s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 7s cubic-bezier(0.25, 1, 0.5, 1),
+    visibility 1.5s step-end;
+  z-index: 1;
+  will-change: opacity, transform;
+}
+
+/* Active background slide with smooth zoom-in */
+.hero-bg-slide.active {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1);
+  transition: 
+    opacity 1.5s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 7s cubic-bezier(0.25, 1, 0.5, 1),
+    visibility 0s linear;
+}
+
+/* Dark overlay for text legibility */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg, 
+    rgba(7, 20, 38, 0.94) 0%, 
+    rgba(7, 20, 38, 0.80) 50%, 
+    rgba(7, 20, 38, 0.45) 100%
+  );
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Container layering & flex alignment */
+.contact-hero .container.hero-content,
+.contact-hero .hero-content {
+  width: 100%;
+  max-width: 1200px; /* Matches your site container width */
+  margin-inline: auto;
+  padding-inline: 24px; /* Adds breathing room from the left/right screen edges */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  z-index: 3;
+}
+
+/* -----------------------------------------
+   2. TEXT SLIDE ANIMATIONS (STAGGERED FADE-UP)
+----------------------------------------- */
+.hero-text-slide {
+  display: none;
+  opacity: 0;
+  max-width: 740px; 
+  text-align: left;
+}
+
+.hero-text-slide.active {
+  display: block;
+  animation: heroSlideFadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Animate individual child elements inside the active text slide */
+.hero-text-slide.active .eyebrow {
+  animation: heroTextUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
+}
+
+.hero-text-slide.active h1 {
+  animation: heroTextUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.25s both;
+}
+
+.hero-text-slide.active .hero-description {
+  animation: heroTextUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.4s both;
+}
+
+.hero-text-slide.active .hero-badges {
+  animation: heroTextUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.5s both;
+}
+
+.hero-text-slide.active .hero-actions {
+  animation: heroTextUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.6s both;
+}
+
+/* Keyframes for text animation */
+@keyframes heroSlideFadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes heroTextUp {
+  0% {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* -----------------------------------------
+   3. GRID & RESPONSIVE LAYOUT
+----------------------------------------- */
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+@media (max-width: 900px) {
+  .contact-grid {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+}
+
+/* -----------------------------------------
+   4. HERO FEATURE BADGES STYLING
+----------------------------------------- */
+.hero-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-block: 20px 24px;
+}
+
+.badge-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(244, 196, 94, 0.3); /* Soft gold border */
+  padding: 6px 14px;
+  border-radius: 50px;
+  font-size: 0.88rem;
+  color: #ffffff;
+  backdrop-filter: blur(4px);
+}
+
+.badge-item i {
+  color: var(--palette-gold, #f4c45e);
+  font-size: 0.95rem;
+}
+
+/* Page Identifier Badge Styling */
+.page-identifier-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(244, 196, 94, 0.15); /* Soft gold tint */
+  border: 1px solid var(--palette-gold, #f4c45e);
+  color: var(--palette-gold, #f4c45e);
+  padding: 6px 16px;
+  border-radius: 4px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.page-identifier-badge i {
+  font-size: 0.9rem;
+}
