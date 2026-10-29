@@ -3376,7 +3376,7 @@ mask-composite: exclude;
 
 
 /* =========================================
-   CONTACT HERO SLIDER & ANIMATIONS
+   CONTACT PAGE
 ========================================= */
 
 /* Ensure exact proportions for 1672x814 background aspect ratio */
@@ -3425,6 +3425,11 @@ mask-composite: exclude;
     visibility 0s linear;
 }
 
+.contact-cards-section {
+  background-color: #ededed;
+  color: #111111;
+}
+
 /* Dark overlay for text legibility */
 .hero-overlay {
   position: absolute;
@@ -3443,9 +3448,9 @@ mask-composite: exclude;
 .contact-hero .container.hero-content,
 .contact-hero .hero-content {
   width: 100%;
-  max-width: 1200px; /* Matches your site container width */
+  max-width: 1200px; 
   margin-inline: auto;
-  padding-inline: 24px; /* Adds breathing room from the left/right screen edges */
+  padding-inline: 24px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -3567,14 +3572,19 @@ mask-composite: exclude;
   color: var(--palette-gold, #f4c45e);
   padding: 6px 16px;
   border-radius: 4px;
-  font-size: 0.82rem;
+  font-size: 24px;
   font-weight: 700;
   letter-spacing: 1.5px;
-  text-transform: uppercase;
+  text-transform: none;
   margin-bottom: 16px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .page-identifier-badge i {
   font-size: 0.9rem;
+}
+
+.contact-cards-section .service-card h3 {
+    color: #ffffff !important;
+    font-weight: 700 !important;
 }

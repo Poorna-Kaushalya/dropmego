@@ -25,10 +25,9 @@ $pageTitle = 'Contact Us | DropMe Go Designated Driver Service';
             <div class="hero-copy hero-text-slide slide-1 active">
                 <!-- Page Identifier Badge -->
                 <div class="page-identifier-badge">
-                    <i class="bi bi-geo-alt-fill"></i> CONTACT US
+                    <i class="bi bi-geo-alt-fill"></i> Contact Us...
                 </div>
 
-                <p class="eyebrow"><span></span>GET IN TOUCH WITH US</p>
                 <h1>We are here to help you <em>drive safe.</em></h1>
                 <p class="hero-description">
                     Have questions about our designated driver services, corporate arrangements, or need immediate assistance? Reach out to our 24/7 support team via direct phone call, WhatsApp, or explore our transparent hourly and distance-based packages below.
@@ -55,7 +54,7 @@ $pageTitle = 'Contact Us | DropMe Go Designated Driver Service';
             <div class="hero-copy hero-text-slide slide-2">
                 <!-- Page Identifier Badge -->
                 <div class="page-identifier-badge">
-                    <i class="bi bi-geo-alt-fill"></i> CONTACT US
+                    <i class="bi bi-geo-alt-fill"></i> Contact Us...
                 </div>
 
                 <p class="eyebrow"><span></span>STAY SAFE. DON'T DRINK AND DRIVE.</p>
