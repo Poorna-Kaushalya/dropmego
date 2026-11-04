@@ -1,7 +1,8 @@
 <header class="site-header" id="top">
     <div class="container nav-wrap">
 
-        <a class="brand" href="#top" aria-label="DropMe Go home">
+        <!-- Brand Logo: Navigate to Homepage -->
+        <a class="brand" href="index.php#top" aria-label="DropMe Go home">
             <img
                 src="assets/img/icon.png"
                 alt="DropMe Go icon"
@@ -25,17 +26,20 @@
         </button>
 
         <nav class="main-nav" id="mainNav">
-            <a href="#about">About Us</a>
-            <a href="#services">Services</a>
-            <a href="#how-it-works">How it works</a>
-            <a href="#pricing">Packages</a>
+
+            <a href="index.php#top">Home</a>
+            <a href="index.php#about">About Us</a>
+            <a href="index.php#services">Services</a>
+            <a href="index.php#how-it-works">How it works</a>
+            <a href="index.php#pricing">Packages</a>
             <a href="contact.php">Contact</a>
 
             <a class="button button-small button-gold nav-cta"
-               href="#booking">
+               href="index.php#booking">
                 Book a Driver
                 <i class="bi bi-arrow-up-right"></i>
             </a>
+
         </nav>
 
     </div>

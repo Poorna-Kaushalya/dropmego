@@ -406,24 +406,30 @@ if (aboutImage) {
 }
 
 /* =========================================
-   DROP ME GO LOGO: RELOAD PAGE AT TOP
+   HOME AND LOGO: SCROLL TO TOP
 ========================================= */
 
-const brandLink = document.querySelector(".site-header .brand");
+const homeLinks = document.querySelectorAll(
+  '.main-nav a[href="index.php#top"], .site-header .brand'
+);
 
-if (brandLink) {
-  brandLink.addEventListener("click", (event) => {
-    event.preventDefault();
+homeLinks.forEach((link) => {
+  link.addEventListener("click", (event) => {
+    const currentPath = window.location.pathname;
+    const isHomePage =
+      currentPath.endsWith("/index.php") ||
+      currentPath.endsWith("/");
 
-    closeMenu();
+    if (isHomePage) {
+      event.preventDefault();
 
-    // Navigate to the current page's top anchor.
-    const topUrl = new URL(window.location.href);
-    topUrl.hash = "top";
+      closeMenu();
 
-    // Force navigation even when already on #top.
-    window.location.assign(topUrl.href);
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    }
   });
-}
-
+});
 })();
