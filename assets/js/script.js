@@ -433,3 +433,205 @@ homeLinks.forEach((link) => {
   });
 });
 })();
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const header = document.querySelector(".site-header");
+  const menuToggle = document.querySelector("#menuToggle");
+  const mainNav = document.querySelector("#mainNav");
+
+  // Navbar scroll effect
+  const updateHeader = () => {
+    if (header) {
+      header.classList.toggle("is-scrolled", window.scrollY > 30);
+    }
+  };
+
+  updateHeader();
+  window.addEventListener("scroll", updateHeader, { passive: true });
+
+  // Mobile navigation
+  if (menuToggle && mainNav) {
+    menuToggle.addEventListener("click", () => {
+      const isOpen = mainNav.classList.toggle("is-open");
+
+      menuToggle.setAttribute("aria-expanded", String(isOpen));
+      menuToggle.setAttribute(
+        "aria-label",
+        isOpen ? "Close navigation menu" : "Open navigation menu"
+      );
+
+      menuToggle.innerHTML = isOpen
+        ? '<i class="bi bi-x-lg"></i>'
+        : '<i class="bi bi-list"></i>';
+    });
+
+    mainNav.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        mainNav.classList.remove("is-open");
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.setAttribute("aria-label", "Open navigation menu");
+        menuToggle.innerHTML = '<i class="bi bi-list"></i>';
+      });
+    });
+
+    document.addEventListener("click", event => {
+      if (
+        !mainNav.contains(event.target) &&
+        !menuToggle.contains(event.target)
+      ) {
+        mainNav.classList.remove("is-open");
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.setAttribute("aria-label", "Open navigation menu");
+        menuToggle.innerHTML = '<i class="bi bi-list"></i>';
+      }
+    });
+  }
+
+  // Active navigation link
+  const currentPage = window.location.pathname.split("/").pop() || "index.php";
+
+  document.querySelectorAll(".main-nav a").forEach(link => {
+    const href = link.getAttribute("href");
+
+    if (!href) return;
+
+    const linkPage = href.split("#")[0].split("/").pop();
+
+    if (
+      linkPage === currentPage &&
+      !href.includes("#")
+    ) {
+      link.classList.add("is-active");
+    }
+  });
+});
+
+
+
+/* =========================================
+   AGREEMENT PAGE — SCROLL ANIMATIONS
+========================================= */
+
+document.addEventListener("DOMContentLoaded", () => {
+    const agreementPage = document.querySelector(".agreement-page");
+
+    if (!agreementPage) return;
+
+    const prefersReducedMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+    const cards = agreementPage.querySelectorAll(".agreement-card");
+    const intro = agreementPage.querySelector(".agreement-intro");
+    const contact = agreementPage.querySelector(".agreement-contact");
+    const finalNote = agreementPage.querySelector(".agreement-final-note");
+    const heroContent = agreementPage.querySelector(".agreement-hero .container");
+
+    const revealElements = [
+        heroContent,
+        intro,
+        ...cards,
+        contact,
+        finalNote
+    ].filter(Boolean);
+
+    // Keep all elements visible when animations are disabled.
+    if (
+        prefersReducedMotion ||
+        !("IntersectionObserver" in window)
+    ) {
+        revealElements.forEach(element => {
+            element.classList.add("agreement-visible");
+        });
+
+        return;
+    }
+
+    // Add reveal classes.
+    revealElements.forEach((element, index) => {
+        element.classList.add("agreement-animate");
+
+        element.style.setProperty(
+            "--agreement-delay",
+            `${Math.min(index * 180, 900)}ms`
+        );
+    });
+
+    // Reveal sections while scrolling.
+    const sectionObserver = new IntersectionObserver(
+        (entries, observer) => {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) return;
+
+                entry.target.classList.add("agreement-visible");
+                observer.unobserve(entry.target);
+            });
+        },
+        {
+            threshold: 0.12,
+            rootMargin: "0px 0px -45px 0px"
+        }
+    );
+
+    revealElements.forEach(element => {
+        const rect = element.getBoundingClientRect();
+
+        if (
+            rect.top < window.innerHeight &&
+            rect.bottom > 0
+        ) {
+            element.classList.add("agreement-visible");
+        } else {
+            sectionObserver.observe(element);
+        }
+    });
+
+    // Animate clause content with a small stagger.
+    cards.forEach(card => {
+        const clauses = card.querySelectorAll(
+            ".agreement-rule-item"
+        );
+
+        clauses.forEach((clause, index) => {
+            clause.classList.add("agreement-clause-animate");
+
+            clause.style.setProperty(
+                "--clause-delay",
+                `${index * 150}ms`
+            );
+        });
+    });
+
+    // Reveal clauses when their card enters the viewport.
+    const clauseObserver = new IntersectionObserver(
+        (entries, observer) => {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) return;
+
+                entry.target
+                    .querySelectorAll(".agreement-rule-item")
+                    .forEach(clause => {
+                        clause.classList.add("agreement-clause-visible");
+                    });
+
+                observer.unobserve(entry.target);
+            });
+        },
+        {
+            threshold: 0.08,
+            rootMargin: "0px 0px -25px 0px"
+        }
+    );
+
+    cards.forEach(card => {
+        if (card.classList.contains("agreement-visible")) {
+            card.querySelectorAll(".agreement-rule-item").forEach(clause => {
+                clause.classList.add("agreement-clause-visible");
+            });
+        } else {
+            clauseObserver.observe(card);
+        }
+    });
+});
+

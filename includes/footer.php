@@ -4,7 +4,7 @@
 
         <!-- Column 1: Brand -->
         <div class="footer-brand">
-            <a class="brand" href="#top" aria-label="DropMe Go home">
+            <a class="brand" href="index.php#top" aria-label="DropMe Go home">
                 <img
                     src="assets/img/icon.png"
                     alt="DropMe Go Logo"
@@ -23,19 +23,20 @@
         <!-- Column 2: Explore -->
         <div class="footer-links">
             <h4>Explore</h4>
-            <a href="index.php#top">Home</a>
+            <a href="index.php">Home</a>
             <a href="index.php#about">About Us</a>
             <a href="index.php#services">Services</a>
             <a href="index.php#how-it-works">How It Works</a>
             <a href="index.php#pricing">All Packages</a>
+            <a href="agreement.php">Agreement & Policies</a>
         </div>
 
         <!-- Column 3: Packages -->
         <div class="footer-links">
             <h4>Our Packages</h4>
-            <a href="#hourly-package">Hourly Package</a>
-            <a href="#short-distance-package">Short Distance Package</a>
-            <a href="#day-package">Day Package</a>
+            <a href="index.php#pricing">Hourly Package</a>
+            <a href="index.php#pricing">Short Distance Package</a>
+            <a href="index.php#pricing">Day Package</a>
         </div>
 
         <!-- Column 4: Contact -->
@@ -44,7 +45,7 @@
             <a href="tel:<?= htmlspecialchars($phoneLink, ENT_QUOTES, 'UTF-8') ?>">
                 <?= htmlspecialchars($phoneDisplay, ENT_QUOTES, 'UTF-8') ?>
             </a>
-            <a href="#booking">Request a Safe Driver</a>
+            <a href="index.php#booking">Request a Safe Driver</a>
             <a
                 href="https://wa.me/<?= htmlspecialchars($whatsappNumber, ENT_QUOTES, 'UTF-8') ?>"
                 target="_blank"
@@ -52,6 +53,7 @@
                 WhatsApp Support
             </a>
         </div>
+
 
     </div>
 
